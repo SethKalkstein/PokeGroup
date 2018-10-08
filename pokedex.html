@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pokedex</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="pokedex.css">
+</head>
+<body>
+
+	<div id='header'>
+		<div id='left'></div>
+		<div id='right'></div>
+		<div class="pokeball">
+    	<div class="pokeball__button"></div>
+  		</div>
+
+	</div>
+<div id='header-title'>
+</div>
+	<div class='wrapper'>
+
+		
+		<div id='buttons'>
+		<input type="submit" value="Metapod" id='metapodButton'>
+		<input type="submit" value="Weezing" id='weezingButton'>
+		<input type="submit" value="Tangela" id='tangelaButton'>
+		</div>
+	
+		<div id='pokename'>Name</div>
+		<div id='type'>Type</div>		
+		<div id='hp'>HP</div>
+		<div id='id'>ID</div>
+		<div id='attack'>Attack</div>
+		<div id='defense'>Defense</div>
+		<div id='img'></div>
+		<div id='abilities'>Abilities</div>
+
+
+
+<!-- Collapsible menu -->
+		<div class='collapsibleMenu'>
+			<h2>Pokemon Attributes</h2>
+
+			<button class="collapsible">Moves</button>
+			<div class="content">
+			  <p id='move1'></p>
+			  <p id='move2'></p>
+			  <p id='move3'></p>
+			  <p id='move4'></p>
+			  <p id='move5'></p>
+			</div>
+			<button class="collapsible">Stats</button>
+			<div class="content">
+			  <p id='stat1'></p>
+			  <p id='stat2'></p>
+			  <p id='stat3'></p>
+			  <p id='stat4'></p>
+			  <p id='stat5'></p>
+			  <p id='stat6'></p>
+			</div>
+
+		</div>
+	</div>
+	
+
+	</div>
+
+
+<script type="text/javascript" src='pokedex.js'></script>
+</body>
+</html>
