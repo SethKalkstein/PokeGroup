@@ -65,7 +65,7 @@ class Trainer{
 		pokeName.innerHTML = this.pokes[this.current].name;  //sets the name in the html
 		$("#poketype").html("TYPE: "+this.pokes[this.current].poketype);
 		pokePic.style.backgroundImage = "url("+this.pokes[this.current].img+")";  //sets the new image in the html
-		pokePic.style.backgroundSize = "100% 100%"; //should be in CSS for greater effeciency, but will change later for time
+		// pokePic.style.backgroundSize = "100% 100%"; //should be in CSS for greater effeciency, but will change later for time
 		// pokePic.alt="Image of "+this.pokes.name;
 		// console.log(this.pokes[this.current].img); 
 		$("#pokeid").html("ID: "+this.pokes[this.current].pokeid);
@@ -77,7 +77,7 @@ class Trainer{
 //Load the collapsable menu below me
 
 		for(var i = 1; i<=5;i++){
-			$("#move"+i).html(this.moves[0]);
+			$("#move"+i).html(this.pokes[this.current].moves[i]);
 		}
 
 		$("#stat1").html("Speed: "+this.pokes[this.current].speed);
@@ -89,6 +89,7 @@ class Trainer{
 	}
 	createAbilities(){
 		$("#abilities").html("");
+		$("#abilities").append("<div>ABILITIES:</div>");
 		for (let i=0;i<this.pokes[this.current].abilities.length;i++){
 			$("#abilities").append("<div>"+this.pokes[this.current].abilities[i]+"</div>");
 		}
@@ -129,7 +130,7 @@ function initialLoad(monNumbers){
 
 
 function apiLaodCheck(trainerObj, monObj){
-	if (trainerObj[0]==undefined){
+	if (trainerObj.pokes[0]==undefined){
 		console.log("API still loading");
 		window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?) 
 			trainerObj = new Trainer(monObj);
@@ -161,22 +162,22 @@ var trainerRoss = new Trainer(rossList);
 trainerRoss = apiLaodCheck(trainerRoss, rossList);
 
 trainerArray = [nurseSeths,doctorDrew,trainerRoss];
-trainerCount = 0;
+trainerCount = 2;
 
 $("#sethPoke").click(function(){
 	trainerCount=0;
-	trainerArray[trainerCount].load();
+	trainerArray[trainerCount].loadPoke();
 })
 
 $("#drewPoke").click(function(){
 	trainerCount=1;
-	trainerArray[trainerCount].load();
+	trainerArray[trainerCount].loadPoke();
 
 })
 
 $("#rossPoke").click(function(){
 	trainerCount=2;
-	trainerArray[trainerCount].load();
+	trainerArray[trainerCount].loadPoke();
 
 })
 
