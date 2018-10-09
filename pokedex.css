@@ -31,7 +31,7 @@ body {
 #header-title {
 	margin: 20px auto;
 	/*border: 2px solid black;*/
-	width: 70%;
+	width: 60%;
 	height: 110px;
 	font-size: 30px;
 	color: white;
@@ -86,7 +86,7 @@ body {
 	box-shadow: 2px 2px 1px;
 }
 
-#metapodButton {
+#sethPoke {
 	border: 2px solid;
 	width: 100px;
 	height:40px;
@@ -95,14 +95,14 @@ body {
 	color: white;
 }
 
-#weezingButton {
+#rossPoke {
 	border: 2px solid;
 	width: 100px;
 	height:40px;
 	border-radius: 5px;
 }
 
-#tangelaButton {
+#drewPoke {
 	border: 2px solid;
 	width: 100px;
 	height:40px;
@@ -113,7 +113,7 @@ body {
 
 #img {
 	/*border: 2px solid;*/
-	height: 50vh;
+	height: 40vh;
 	width: 15vw;
 	background-size: 100% 100%;
 	padding-bottom: 500px;
@@ -131,7 +131,7 @@ body {
 	position: absolute;
 }
 
-#type {
+#poketype {
 	border-bottom: 5px solid;
 	width: 160px;
 	height: 30px;
@@ -149,7 +149,7 @@ body {
 	position: absolute;
 }
 
-#id {
+#pokeid {
 	border-bottom: 5px solid;
 	width: 160px;
 	height: 30px;
