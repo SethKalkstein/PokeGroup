@@ -3,7 +3,7 @@
 <head>
 	<title>Pokedex</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="pokedex.css">
+	<link rel="stylesheet" type="text/css" href="pokedex-class.css">
 </head>
 <body>
 
@@ -17,14 +17,20 @@
 	</div>
 <div id='header-title'>
 </div>
-	<div class='wrapper'>
+	<div class='wrapper' id='wrapper'>
 
 		
 		<div id='buttons'>
-		<input type="submit" value="Metapod" id='metapodButton'>
-		<input type="submit" value="Weezing" id='weezingButton'>
-		<input type="submit" value="Tangela" id='tangelaButton'>
+		<input type="submit" value="Trainer Seth" id='metapodButton'>
+		<input type="submit" value="Trainer Ross" id='weezingButton'>
+		<input type="submit" value="Trainer Drew" id='tangelaButton'>
 		</div>
+
+		<div id='cycleButtons'>
+			<input type="submit" value="Previous" id="previousButton">
+			<input type="submit" value="Next" id="nextButton">
+		</div>
+
 	
 		<div id='pokename'>Name</div>
 		<div id='type'>Type</div>		
@@ -42,7 +48,7 @@
 			<h2>Pokemon Attributes</h2>
 
 			<button class="collapsible">Moves</button>
-			<div class="content">
+			<div class="content" id='menuMoves'>
 			  <p id='move1'></p>
 			  <p id='move2'></p>
 			  <p id='move3'></p>
@@ -50,7 +56,7 @@
 			  <p id='move5'></p>
 			</div>
 			<button class="collapsible">Stats</button>
-			<div class="content">
+			<div class="content" id='menuStats'>
 			  <p id='stat1'></p>
 			  <p id='stat2'></p>
 			  <p id='stat3'></p>
@@ -66,6 +72,6 @@
 	</div>
 
 
-<script type="text/javascript" src='pokedex.js'></script>
+<script type="text/javascript" src='pokedex-class.js'></script>
 </body>
 </html>

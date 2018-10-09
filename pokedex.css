@@ -47,6 +47,7 @@ body {
 	margin: 30px 30px;
 	position: relative;
   	background: #ecf0f1;
+  	height: auto;
 }
 
 #buttons {
@@ -56,6 +57,33 @@ body {
 	justify-content: space-between;
 	height: 50px;
 	margin: 10px 0 0 30%;
+}
+
+#cycleButtons {
+	/*border: 2px solid;*/
+	display: flex;
+	justify-content: space-around;
+	width: 300px;
+	float: left;
+	top: 400px;
+	position: absolute;
+	left: 50px;
+}
+
+#nextButton {
+	height: 20px;
+	width: 125px;
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px;
+}
+
+#previousButton {
+	height: 20px;
+	width: 125px;
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px;
 }
 
 #metapodButton {
@@ -152,10 +180,11 @@ body {
 #abilities {
 	border-bottom: 5px solid;
 	width: 160px;
-	height: 30px;
+	height: auto;
 	left: 450px;
 	top: 320px;
 	position: absolute;
+	overflow: hidden;
 }
 
 
@@ -296,4 +325,6 @@ body {
   80% { top: -20px }
   100% { top: 0 }
 }
+
+
 
