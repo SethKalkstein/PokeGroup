@@ -163,23 +163,46 @@ trainerRoss = apiLaodCheck(trainerRoss, rossList);
 
 trainerArray = [nurseSeths,doctorDrew,trainerRoss];
 trainerCount = 2;
+whoIsSelected();
 
 $("#sethPoke").click(function(){
 	trainerCount=0;
 	trainerArray[trainerCount].loadPoke();
+	whoIsSelected();
 })
 
 $("#drewPoke").click(function(){
 	trainerCount=1;
 	trainerArray[trainerCount].loadPoke();
-
+	whoIsSelected();
 })
 
 $("#rossPoke").click(function(){
 	trainerCount=2;
 	trainerArray[trainerCount].loadPoke();
-
+	whoIsSelected();
 })
+
+function whoIsSelected(){
+	if(trainerCount==0){
+		console.log("Change the gosh dang border")
+		$("#sethPoke").css({"border": "4px solid #ffcb05", "box-shadow": "2px 2px 1px #395fa9"});
+		$("#drewPoke").css({"border":"2px solid white","box-shadow":""});
+		$("#rossPoke").css({"border":"2px solid black","box-shadow":""});
+	} 
+	else if(trainerCount==1){
+		console.log("Turn the border off")
+		$("#drewPoke").css({"border": "4px solid #ffcb05", "box-shadow": "2px 2px 1px #395fa9"});
+		$("#sethPoke").css({"border":"2px solid white","box-shadow":""});
+		$("#rossPoke").css({"border":"2px solid black","box-shadow":""});
+	}
+	else {
+		$("#rossPoke").css({"border": "4px solid #ffcb05", "box-shadow": "2px 2px 1px #395fa9"});
+		$("#sethPoke").css({"border":"2px solid white","box-shadow":""});
+		$("#drewPoke").css({"border":"2px solid white","box-shadow":""});		
+	}
+}
+
 
 
 next.addEventListener("click",function(){  //calls Trainer object's method to find the next pokemon
@@ -190,3 +213,20 @@ trainerArray[trainerCount].nextPoke();
 back.addEventListener("click",function(){  //calls Trainer object's method to find the previous pokemon
 trainerArray[trainerCount].prevPoke();
 });
+
+//Drew's collapsable jawn
+
+var coll = document.getElementsByClassName("collapsible"); 
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
