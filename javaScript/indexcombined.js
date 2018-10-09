@@ -3,8 +3,8 @@
  // var monNumbers = [];
  // for(let i = 0;i<801;i++){ monNumbers.push(i);}
 
-var pokePic = document.getElementById("pokePic"); //picture of Pokemon
-const pokeName = document.getElementById("pokeName"); //name of Pokemom
+var pokePic = document.getElementById("img"); //picture of Pokemon
+const pokeName = document.getElementById("pokename"); //name of Pokemom
 
 const back = document.getElementById("previousButton");
 const next = document.getElementById("nextButton");
@@ -19,14 +19,14 @@ class Pokemon{
 		this.name = apiPoke.name; //name
 		this.img = apiPoke.sprites.front_default;  //url for image of pokeman
 		this.hp = apiPoke.stats[5].base_stat;  //hit power, whtever that is
-
-		this.attack = apiPoke.stats[4].base_stat;
-
+		this.poketype = apiPoke.types[0].type.name //brings in the poketype
+		this.attack = apiPoke.stats[4].base_stat;  //etc... with all the other attributes
+		this.pokeid= apiPoke.id; 
 		this.defense = apiPoke.stats[3].base_stat;
 		this.specialAttack = apiPoke.stats[2].base_stat;
 		this.specialDefense = apiPoke.stats[1].base_stat;
 		this.speed = apiPoke.stats[0].base_stat;
-		this.moves = []
+		this.moves = [];
 		for(let i = 0;i<5;i++){
 			this.moves.push(apiPoke.moves[i].move.name)
 		}
@@ -62,20 +62,35 @@ class Trainer{
 		console.log("specified pokemon does not belong to this trainer.")
 	}
 	loadPoke(){  //very important method! used every time a new pokemon is laoded to the screen
-		pokeName.innerHTML = this.pokes[this.current].name;
-		pokePic.src=this.pokes[this.current].img;
-		pokePic.alt="Image of "+this.pokes.name;
-		console.log(this.pokes[this.current].img);
-		$("#hp").html(this.pokes[this.current].hp);
-		$("#attack").html(this.pokes[this.current].attack);
-		$("#defense").html(this.pokes[this.current].defense);
+		pokeName.innerHTML = this.pokes[this.current].name;  //sets the name in the html
+		$("#poketype").html("TYPE: "+this.pokes[this.current].poketype);
+		pokePic.style.backgroundImage = "url("+this.pokes[this.current].img+")";  //sets the new image in the html
+		pokePic.style.backgroundSize = "100% 100%"; //should be in CSS for greater effeciency, but will change later for time
+		// pokePic.alt="Image of "+this.pokes.name;
+		// console.log(this.pokes[this.current].img); 
+		$("#pokeid").html("ID: "+this.pokes[this.current].pokeid);
+		$("#hp").html("HP: "+this.pokes[this.current].hp);
+		$("#attack").html("ATTACK: "+this.pokes[this.current].attack);
+		$("#defense").html("DEFENSE: "+this.pokes[this.current].defense);
 		this.createAbilities();
-		console.log(this.pokes[this.current].name+"'s number is: "+this.current);
+
+//Load the collapsable menu below me
+
+		for(var i = 1; i<=5;i++){
+			$("#move"+i).html(this.moves[0]);
+		}
+
+		$("#stat1").html("Speed: "+this.pokes[this.current].speed);
+		$("#stat2").html("Special Defense: "+this.pokes[this.current].specialDefense);
+		$("#stat3").html("Special Attack: "+this.pokes[this.current].specialAttack);
+		$("#stat4").html("Defense: "+this.pokes[this.current].defense);
+		$("#stat5").html("Attack: "+this.pokes[this.current].attack);
+		$("#stat6").html("Hewlett Packard: "+this.pokes[this.current].hp);
 	}
 	createAbilities(){
 		$("#abilities").html("");
 		for (let i=0;i<this.pokes[this.current].abilities.length;i++){
-			$("#abilities").append("<li>"+this.pokes[this.current].abilities[i]+"</li>");
+			$("#abilities").append("<div>"+this.pokes[this.current].abilities[i]+"</div>");
 		}
 	}
 
