@@ -48,22 +48,20 @@ class Pokemon{
 class Trainer{ 
 	constructor(pokes) {      //called upon loading the window. 
 		this.pokes = pokes;     //the array of pokemons created in the window load event listener
-		this.current = 0;
+		this.current = 0; //sets initial member of pokemon array to the zero element once load is called
 	}
 	all(){
-		return this.pokes;
+		return this.pokes;  //returns an array of all pokemen in an instance of the Trainer object
 	}
-	name(nameMatch){
-		for(let i=0;i<this.pokes.length;i++){
+	name(nameMatch){ 
+		for(let i=0;i<this.pokes.length;i++){   //we're not gonna use this method anyway but the homework told us to create it for some reason!?
 			if(this.pokes[i].name==nameMatch){
 				return this.pokes[i];
 			}
 		}
 		console.log("specified pokemon does not belong to this trainer.")
 	}
-	loadPoke(){
-		console.log("special speed: "+this.pokes[this.current].speed);
-		console.log(this.pokes[this.current].abilities);
+	loadPoke(){  //very important method! used every time a new pokemon is laoded to the screen
 		pokeName.innerHTML = this.pokes[this.current].name;
 		pokePic.src=this.pokes[this.current].img;
 		pokePic.alt="Image of "+this.pokes.name;
