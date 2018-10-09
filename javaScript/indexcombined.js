@@ -5,8 +5,9 @@
 
 var pokePic = document.getElementById("pokePic"); //picture of Pokemon
 const pokeName = document.getElementById("pokeName"); //name of Pokemom
-const back = document.getElementById("back");
-const next = document.getElementById("next");
+
+const back = document.getElementById("previousButton");
+const next = document.getElementById("nextButton");
 
 
 
@@ -146,14 +147,32 @@ var rossList = initialLoad(rossNumbers);
 var trainerRoss = new Trainer(rossList);
 trainerRoss = apiLaodCheck(trainerRoss, rossList);
 
+trainerArray = [nurseSeths,doctorDrew,trainerRoss];
+trainerCount = 0;
 
+$("#sethPoke").click(function(){
+	trainerCount=0;
+	trainerArray[trainerCount].load();
+})
+
+$("#drewPoke").click(function(){
+	trainerCount=1;
+	trainerArray[trainerCount].load();
+
+})
+
+$("#rossPoke").click(function(){
+	trainerCount=2;
+	trainerArray[trainerCount].load();
+
+})
 
 
 next.addEventListener("click",function(){  //calls Trainer object's method to find the next pokemon
-nurseSeths.nextPoke();
+trainerArray[trainerCount].nextPoke();
 });
 
 
 back.addEventListener("click",function(){  //calls Trainer object's method to find the previous pokemon
-nurseSeths.prevPoke();
+trainerArray[trainerCount].prevPoke();
 });
