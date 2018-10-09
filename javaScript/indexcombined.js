@@ -1,5 +1,4 @@
 
-const monNumbers = [25,79,52]; //the number of the indivual pokemon
 // const monNumbers = [52,79,25,23,58,12,55,3,5,9,37,59,81,87,98,97,96,95,94,101,102,103,109,155]; //numbers of the pokemons I'll be using
  // var monNumbers = [];
  // for(let i = 0;i<801;i++){ monNumbers.push(i);}
@@ -8,7 +7,7 @@ var pokePic = document.getElementById("pokePic"); //picture of Pokemon
 const pokeName = document.getElementById("pokeName"); //name of Pokemom
 const back = document.getElementById("back");
 const next = document.getElementById("next");
-var listOfPokemons = []; //will hold the pokemon objects
+
 
 
 class Pokemon{  
@@ -96,27 +95,54 @@ class Trainer{
 	}
 }
 
-for(let i = 0;i<monNumbers.length;i++){ //loops through all pokemon numbers in the array
-	$.ajax({url:"https://fizal.me/pokeapi/api/"+monNumbers[i]+".json", //calls the API
-		success: function(response){ //callback for API object data
-			let pokeObj = new Pokemon(response); //creates an instance of the Pokemon object
-			listOfPokemons.push(pokeObj); //pushes the new instance to the array of Pokemon
-		}
-	})
+function initialLoad(monNumbers){
+	var listOfPokemons = [];
+	for(let i = 0;i<monNumbers.length;i++){ //loops through all pokemon numbers in the array
+		$.ajax({url:"https://fizal.me/pokeapi/api/"+monNumbers[i]+".json", //calls the API
+			success: function(response){ //callback for API object data
+				let pokeObj = new Pokemon(response); //creates an instance of the Pokemon object
+				listOfPokemons.push(pokeObj); //pushes the new instance to the array of Pokemon
+			}
+		})
+	}
+	return listOfPokemons;
 }
 
-var nurseSeths = new Trainer(listOfPokemons);
 
-if (nurseSeths[0]==undefined){
-	console.log("API still loading");
-	window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?) 
-		nurseSeths = new Trainer(listOfPokemons);
+function apiLaodCheck(trainerObj, monObj){
+	if (trainerObj[0]==undefined){
+		console.log("API still loading");
+		window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?) 
+			trainerObj = new Trainer(monObj);
+			console.log("i'm in the IF")
+			trainerObj.loadPoke();
+		}, 500);
+	}
+	else{
 		nurseSeths.loadPoke();
-	}, 200+2*monNumbers.length);
+					console.log("i'm in the ELSE")
+
+	}
+	return trainerObj;
 }
-else{
-	nurseSeths.loadPoke();
-}
+const sethNumbers = [25,79,52]; //the number of the indivual pokemon
+const drewNumbers = [11,110,114];
+const rossNumbers = [150, 68, 262];
+
+var sethList = initialLoad(sethNumbers);
+var nurseSeths = new Trainer(sethList);
+nurseSeths = apiLaodCheck(nurseSeths, sethList);
+
+var drewList = initialLoad(drewNumbers);
+var doctorDrew = new Trainer(drewList);
+doctorDrew = apiLaodCheck(doctorDrew, drewList);
+
+var rossList = initialLoad(rossNumbers);
+var trainerRoss = new Trainer(rossList);
+trainerRoss = apiLaodCheck(trainerRoss, rossList);
+
+
+
 
 next.addEventListener("click",function(){  //calls Trainer object's method to find the next pokemon
 nurseSeths.nextPoke();
