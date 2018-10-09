@@ -124,8 +124,8 @@ function apiLaodCheck(trainerObj, monObj){
 		}, 500);
 	}
 	else{
-		nurseSeths.loadPoke();
-					console.log("i'm in the ELSE")
+		trainerObj.loadPoke();
+			console.log("i'm in the ELSE")
 
 	}
 	return trainerObj;
