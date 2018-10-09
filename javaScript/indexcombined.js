@@ -10,13 +10,17 @@ const next = document.getElementById("next");
 
 
 
-class Pokemon{
+
+class Pokemon{  
+
 	constructor(apiPoke){ //passes in the the pokemon info object from the API
 		console.log(apiPoke);
 		this.name = apiPoke.name; //name
 		this.img = apiPoke.sprites.front_default;  //url for image of pokeman
 		this.hp = apiPoke.stats[5].base_stat;  //hit power, whtever that is
+
 		this.attack = apiPoke.stats[4].base_stat;
+
 		this.defense = apiPoke.stats[3].base_stat;
 		this.specialAttack = apiPoke.stats[2].base_stat;
 		this.specialDefense = apiPoke.stats[1].base_stat;
@@ -30,6 +34,7 @@ class Pokemon{
 		this.abilities = this.cleanAbilites(this.rawAbilities); //abilities in clean form
 	}
 
+
 	cleanAbilites(){
 		var cleanedArray = []; //will hold the ability variable without all the extra junk data
 		for(let i=0;i<this.rawAbilities.length;i++){ //loops through the abilities, they can have 2 or 3
@@ -39,8 +44,8 @@ class Pokemon{
 	}
 }
 
-class Trainer{
-	constructor(pokes) {      //called upon loading the window.
+class Trainer{ 
+	constructor(pokes) {      //called upon loading the window. 
 		this.pokes = pokes;     //the array of pokemons created in the window load event listener
 		this.current = 0;
 	}
@@ -112,7 +117,7 @@ function initialLoad(monNumbers){
 function apiLaodCheck(trainerObj, monObj){
 	if (trainerObj[0]==undefined){
 		console.log("API still loading");
-		window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?)
+		window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?) 
 			trainerObj = new Trainer(monObj);
 			console.log("i'm in the IF")
 			trainerObj.loadPoke();
