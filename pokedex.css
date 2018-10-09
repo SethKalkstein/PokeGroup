@@ -1,0 +1,299 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	width: 100%;
+	height: 80px;
+	background-color: white;
+	font-size: 25px;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 4px solid black;
+}
+
+#left {
+	width: 50%;
+	height: 80%;
+	background-color: #3B4CCA;
+	margin: 10px auto;
+}
+
+#right {
+	width: 50%;
+	height: 80%;
+	background-color: #FF0000;
+	margin: 10px auto;
+}
+
+#header-title {
+	margin: 20px auto;
+	/*border: 2px solid black;*/
+	width: 70%;
+	height: 110px;
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	background-image: url("images/Trainer-Drews-Pokedex.png");
+	background-size: 100% 100%;
+}
+
+.wrapper {
+	border: 2px solid;
+	border-radius: 10px;
+	margin: 30px 30px;
+	position: relative;
+  	background: #ecf0f1;
+}
+
+#buttons {
+	display: flex;
+	/*border: 1px solid;*/
+	width: 700px;
+	justify-content: space-between;
+	height: 50px;
+	margin: 10px 0 0 30%;
+}
+
+#metapodButton {
+	border: 2px solid;
+	width: 100px;
+	height:40px;
+	border-radius: 5px;
+	background-color: #3B4CCA;
+	color: white;
+}
+
+#weezingButton {
+	border: 2px solid;
+	width: 100px;
+	height:40px;
+	border-radius: 5px;
+}
+
+#tangelaButton {
+	border: 2px solid;
+	width: 100px;
+	height:40px;
+	border-radius: 5px;
+	background-color: #FF0000;
+	color: white;
+}
+
+#img {
+	/*border: 2px solid;*/
+	height: 50vh;
+	width: 15vw;
+	background-size: 100% 100%;
+	padding-bottom: 500px;
+	position: relative;
+	bottom: 100px;
+	left: 80px;
+}
+
+#pokename {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 80px;
+	position: absolute;
+}
+
+#type {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 120px;
+	position: absolute;
+}
+
+#hp {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 160px;
+	position: absolute;
+}
+
+#id {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 200px;
+	position: absolute;
+}
+
+#defense {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 240px;
+	position: absolute;
+}
+
+
+#attack {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 280px;
+	position: absolute;
+}
+
+#abilities {
+	border-bottom: 5px solid;
+	width: 160px;
+	height: 30px;
+	left: 450px;
+	top: 320px;
+	position: absolute;
+}
+
+
+
+
+/*////collapsible menu*/
+
+.collapsibleMenu {
+	border: 2px solid;
+	border-style: double;
+	position: absolute;
+	left: 780px;
+	top: 70px;
+	width: 40%;
+	text-align: center;
+
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+
+/*//pokeball animation*/
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.center-on-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* Poké Styles */
+.pokeball {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border: 7px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 8px 0 10px #ccc;
+  animation: fall .25s ease-in-out,
+             shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+}
+
+.pokeball::before,
+.pokeball::after {
+  content:"";
+  position: absolute;
+}
+
+.pokeball::before {
+  background: red;
+  width: 100%;
+  height: 50%;
+}
+
+.pokeball::after {
+  top: calc(60% - 10px);
+  width: 100%;
+  height: 10px;
+  background: #000;
+}
+
+.pokeball__button {
+  position: absolute;
+  top: calc(80% - 30px);
+  left: calc(85% - 30px);
+  width: 20px;
+  height: 20px;
+  background: #7f8c8d;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 10px black;
+  animation: blink .5s alternate 7;
+}
+
+/* Animation */
+@keyframes blink {
+  from { background: #eee;}
+  to { background: #e74c3c; }
+}
+
+@keyframes shake {
+  0 { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-10px, 0) rotate(-20deg); }
+  30% { transform: translate(10px, 0) rotate(20deg); }
+  50% { transform: translate(-10px, 0) rotate(-10deg); }
+  60% { transform: translate(10px, 0) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+
+@keyframes fall {
+  0% { top: -200px }
+  60% { top: 0 }
+  80% { top: -20px }
+  100% { top: 0 }
+}
+
