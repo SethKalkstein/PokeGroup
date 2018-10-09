@@ -10,13 +10,17 @@ const next = document.getElementById("next");
 
 
 
+
 class Pokemon{  
+
 	constructor(apiPoke){ //passes in the the pokemon info object from the API
 		console.log(apiPoke);
 		this.name = apiPoke.name; //name
 		this.img = apiPoke.sprites.front_default;  //url for image of pokeman
 		this.hp = apiPoke.stats[5].base_stat;  //hit power, whtever that is
-		this.attack = apiPoke.stats[4].base_stat;  
+
+		this.attack = apiPoke.stats[4].base_stat;
+
 		this.defense = apiPoke.stats[3].base_stat;
 		this.specialAttack = apiPoke.stats[2].base_stat;
 		this.specialDefense = apiPoke.stats[1].base_stat;
@@ -29,7 +33,8 @@ class Pokemon{
 		this.rawAbilities= apiPoke.abilities; //stores abilities taken directly from API, has a bunch of unneeded data
 		this.abilities = this.cleanAbilites(this.rawAbilities); //abilities in clean form
 	}
-	
+
+
 	cleanAbilites(){
 		var cleanedArray = []; //will hold the ability variable without all the extra junk data
 		for(let i=0;i<this.rawAbilities.length;i++){ //loops through the abilities, they can have 2 or 3
