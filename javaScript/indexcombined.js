@@ -62,7 +62,7 @@ class Trainer{
 		console.log("specified pokemon does not belong to this trainer.")
 	}
 	loadPoke(){  //very important method! used every time a new pokemon is laoded to the screen
-		pokeName.innerHTML = this.pokes[this.current].name;  //sets the name in the html
+		pokeName.innerHTML = "NAME: "+this.pokes[this.current].name;  //sets the name in the html
 		$("#poketype").html("TYPE: "+this.pokes[this.current].poketype);
 		pokePic.style.backgroundImage = "url("+this.pokes[this.current].img+")";  //sets the new image in the html
 		// pokePic.style.backgroundSize = "100% 100%"; //should be in CSS for greater effeciency, but will change later for time
@@ -85,7 +85,7 @@ class Trainer{
 		$("#stat3").html("Special Attack: "+this.pokes[this.current].specialAttack);
 		$("#stat4").html("Defense: "+this.pokes[this.current].defense);
 		$("#stat5").html("Attack: "+this.pokes[this.current].attack);
-		$("#stat6").html("Hewlett Packard: "+this.pokes[this.current].hp);
+		$("#stat6").html("(H)ewlett (P)ackard: "+this.pokes[this.current].hp);
 	}
 	createAbilities(){
 		$("#abilities").html("");
